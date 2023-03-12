@@ -1,7 +1,7 @@
 from fastapi_restful import Resource
 
 
-class HelloWorld(Resource):
+class SalaryCalculation(Resource):
 
     def get(self):
         return {"hello": "world"}

@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi_restful import Api
 from fastapi.middleware.cors import CORSMiddleware
-from salary_calc_fastapi.endpoints.hello_world import HelloWorld
+from salary_calc_fastapi.endpoints.salary_calculation import SalaryCalculation
 
 
 def create_app():
@@ -14,7 +14,7 @@ def create_app():
     )
 
     api = Api(app)
-    api.add_resource(HelloWorld(), "/helloworld")
+    api.add_resource(SalaryCalculation(), "/salary")
     return app
 
 

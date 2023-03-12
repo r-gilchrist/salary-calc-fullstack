@@ -9,7 +9,7 @@ class TestHellowWorldEndpoint(TestCase):
         self.client = TestClient(app)
 
     def test_successful_response(self):
-        response = self.client.get('/helloworld')
+        response = self.client.get('/salary')
         expected_response = {"hello": "world"}
 
         self.assertEqual(expected_response, response.json())
