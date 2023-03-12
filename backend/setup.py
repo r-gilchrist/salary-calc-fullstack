@@ -18,8 +18,9 @@ setup(
         "fastapi-restful==0.4.3"
     ],
     packages=[
+        "salary_calc_fastapi",
         "salary_calc_fastapi.endpoints",
-        "salary_calc_fastapi"
+        "salary_calc_fastapi.models"
     ],
     python_requires=">=3.11"
 )
