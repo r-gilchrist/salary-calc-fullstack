@@ -3,8 +3,8 @@ from pydantic import BaseModel, validator
 
 class Pension(BaseModel):
     reference_salary: float
-    percentage_employee: float = 0
-    percentage_employer: float = 0
+    percentage_employee: float | None = 0
+    percentage_employer: float | None = 0
 
     def total_percentage(self):
         return self.percentage_employee + self.percentage_employer
