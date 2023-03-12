@@ -15,6 +15,6 @@ class SalaryCalculation(Resource):
     def post(self, example: SalaryRequest):
         salary = Salary(reference_salary=example.reference_salary)
         return {
-            "Original salary": example.reference_salary,
-            "Net salary": salary.get_net(),
+            "reference_salary": example.reference_salary,
+            "net_salary": salary.get_net(),
         }
