@@ -7,7 +7,7 @@ services:
       - ./frontend/hello_world.html:/usr/share/nginx/html/hello_world.html
       - ./frontend/styles/:/usr/share/nginx/html/styles/
       - ./frontend/dist/:/usr/share/nginx/html/dist/
-      # - ./frontend/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./frontend/nginx.conf:/etc/nginx/conf.d/default.conf
     ports:
       - 80:80
   backend:
