@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  frontend:
+  backend:
     image: python:3.11
     volumes:
       - ./backend/requirements.txt:/code/requirements.txt
