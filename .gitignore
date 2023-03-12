@@ -1,0 +1,13 @@
+# vs code
+.vscode*
+
+# Backend
+venv*
+build*
+*pytest*
+*pycache*
+*egg-info*
+
+# Frontend
+*node_modules*
+frontend/dist*
