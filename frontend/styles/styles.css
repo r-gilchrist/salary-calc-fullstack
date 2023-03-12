@@ -1,0 +1,48 @@
+html {
+  background-color: rgb(230, 230, 230);
+  font-family: calibri;
+  font-weight: bold;
+  max-width: 500px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+hr {
+  width: 350px;
+  margin-left: 0;
+}
+
+.input-text,
+.output-text {
+  display: inline-block;
+  margin: 0;
+}
+
+.input-field,
+.output-blue,
+.output-orange,
+.output-green {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  margin: 5px;
+  max-width: 350px;
+  align-items: center;
+}
+
+.output-value {
+  display: inline-block;
+  margin: 0;
+  margin-right: 0;
+}
+
+.output-blue {
+  color: darkblue;
+}
+
+.output-orange {
+  color: brown;
+}
+
+.output-green {
+  color: darkgreen;
+}
