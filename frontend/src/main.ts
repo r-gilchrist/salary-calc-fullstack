@@ -15,6 +15,9 @@ type RequestBody = {
 
 type ResponseBody = {
   reference_salary: number;
+  income_tax: number;
+  national_insurance: number;
+  pension: number;
   net_salary: number;
 };
 
@@ -50,6 +53,9 @@ function update_fields(request_body: RequestBody) {
     })
     .then(function (response_body: ResponseBody) {
       updateOutputField(grossOutput, response_body.reference_salary);
+      updateOutputField(incomeTaxOutput, response_body.income_tax);
+      updateOutputField(niOutput, response_body.national_insurance);
+      updateOutputField(pensionOutput, response_body.pension);
       updateOutputField(netOutput, response_body.net_salary);
     });
 }
