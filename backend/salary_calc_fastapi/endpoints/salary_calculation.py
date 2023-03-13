@@ -6,6 +6,7 @@ from pydantic import BaseModel
 
 class SalaryRequest(BaseModel):
     reference_salary: float
+    pension_contribution: float
 
 
 class SalaryCalculation(Resource):
@@ -13,7 +14,7 @@ class SalaryCalculation(Resource):
         return {"hello": "world"}
 
     def post(self, example: SalaryRequest):
-        salary = Salary(reference_salary=example.reference_salary)
+        salary = Salary(reference_salary=example.reference_salary, percentage_employee=example.pension_contribution)
         return {
             "reference_salary": example.reference_salary,
             "net_salary": salary.get_net(),
