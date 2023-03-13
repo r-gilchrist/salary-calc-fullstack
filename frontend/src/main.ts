@@ -1,3 +1,5 @@
+import { RequestBody, ResponseBody } from "./types";
+
 const grossInput = document.getElementById("gross-input") as HTMLInputElement | null;
 const pensionInput = document.getElementById("pension-input") as HTMLInputElement | null;
 const studentInput = document.getElementById("student-input") as HTMLSelectElement | null;
@@ -9,21 +11,6 @@ const niOutput = document.getElementById("NI-output") as HTMLParagraphElement | 
 const studentOutput = document.getElementById("student-output") as HTMLParagraphElement | null;
 const pensionOutput = document.getElementById("pension-output") as HTMLParagraphElement | null;
 const netOutput = document.getElementById("net-output") as HTMLParagraphElement | null;
-
-type RequestBody = {
-  reference_salary: number;
-  pension_contribution: number;
-  student_loan_type: string;
-};
-
-type ResponseBody = {
-  reference_salary: number;
-  income_tax: number;
-  national_insurance: number;
-  pension: number;
-  student_loan: number;
-  net_salary: number;
-};
 
 submitButton?.addEventListener("click", (e) => {
   let loan_type = "";
