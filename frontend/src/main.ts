@@ -27,8 +27,6 @@ submitButton?.addEventListener("click", (e) => {
     pension_contribution: getInputAmount(pensionInput),
   };
   update_fields(request_body);
-  console.log(`Reference salary is ${request_body.reference_salary}`);
-  console.log(`Pension % contribution is ${request_body.pension_contribution}`);
 });
 
 function getInputAmount(element: HTMLInputElement | null) {
@@ -61,7 +59,6 @@ function update_fields(request_body: RequestBody) {
 }
 
 function updateOutputField(element: HTMLParagraphElement | null, amount: number) {
-  console.log(amount);
   if (element == null) return;
   element.textContent = `£${(amount / 12).toFixed(2)}`;
 }
