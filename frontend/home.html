@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-compatible" content="IE=edge" />
+    <link rel="stylesheet" type="text/css" href="./styles/styles.css" />
+    <link rel="shortcut icon" href="#" />
+  </head>
+  <body>
+    <div class="input-field">
+      <p class="input-text">Gross annual salary (£)</p>
+      <input class="input-value" type="text" id="gross-input" />
+    </div>
+    <div class="input-field">
+      <p class="input-text">Pension contribution (%)</p>
+      <input class="input-value" type="text" id="pension-input" />
+    </div>
+    <div class="input-field">
+      <p></p>
+      <button id="update-salary">Submit</button>
+    </div>
+    <hr>
+    <div class="output-blue">
+      <p class="output-text">Gross salary</p>
+      <p class="output-value" id="gross-output">£0.00</p>
+    </div>
+    <hr />
+    <div class="output-orange">
+      <p class="output-text">Income Tax</p>
+      <p class="output-value" id="tax-output">£0.00</p>
+    </div>
+    <div class="output-orange">
+      <p class="output-text">National Insurance</p>
+      <p class="output-value" id="NI-output">£0.00</p>
+    </div>
+    <div class="output-orange">
+      <p class="output-text">Pension</p>
+      <p class="output-value" id="pension-output">£0.00</p>
+    </div>
+    <hr />
+    <div class="output-green">
+      <p class="output-text">Net Salary</p>
+      <p class="output-value" id="net-output">£0.00</p>
+    </div>
+    <script src="dist/main.js" type="module"></script>
+  </body>
+</html>
