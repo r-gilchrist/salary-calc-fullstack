@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from salary_calc_fastapi.models.income_tax import IncomeTax
 from salary_calc_fastapi.models.national_insurance import NationalInsurance
+from salary_calc_fastapi.models.student_loan import StudentLoan
 from salary_calc_fastapi.models.pension import Pension
 
 
@@ -8,6 +9,7 @@ class Salary(BaseModel):
     reference_salary: float
     percentage_employer: float | None = 0
     percentage_employee: float | None = 0
+    loan_type: str = ""
 
     @property
     def pension(self):
@@ -30,5 +32,12 @@ class Salary(BaseModel):
         return NationalInsurance(gross_salary=self.gross_salary).get_amount()
 
     @property
+    def student_loan(self):
+        return StudentLoan(
+            gross_salary=self.gross_salary,
+            loan_type=self.loan_type
+        ).get_amount()
+
+    @property
     def net_salary(self):
-        return self.gross_salary - self.income_tax - self.national_insurance
+        return self.gross_salary - self.income_tax - self.national_insurance - self.student_loan
