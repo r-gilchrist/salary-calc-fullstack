@@ -20,7 +20,8 @@ setup(
     packages=[
         "salary_calc_fastapi",
         "salary_calc_fastapi.endpoints",
-        "salary_calc_fastapi.models"
+        "salary_calc_fastapi.models",
+        "salary_calc_fastapi.helpers"
     ],
     python_requires=">=3.11"
 )
