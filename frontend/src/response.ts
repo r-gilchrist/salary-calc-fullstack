@@ -5,7 +5,7 @@ const studentOutput = document.getElementById("student-output") as HTMLParagraph
 const pensionOutput = document.getElementById("pension-output") as HTMLParagraphElement | null;
 const netOutput = document.getElementById("net-output") as HTMLParagraphElement | null;
 
-export type ResponseBody = {
+type ResponseBody = {
   reference_salary: number;
   income_tax: number;
   national_insurance: number;

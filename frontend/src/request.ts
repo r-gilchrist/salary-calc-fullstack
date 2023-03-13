@@ -2,7 +2,7 @@ const grossInput = document.getElementById("gross-input") as HTMLInputElement | 
 const pensionInput = document.getElementById("pension-input") as HTMLInputElement | null;
 const studentInput = document.getElementById("student-input") as HTMLSelectElement | null;
 
-export type RequestBody = {
+type RequestBody = {
   reference_salary: number;
   pension_contribution: number;
   student_loan_type: string;

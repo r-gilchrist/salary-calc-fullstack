@@ -1,27 +1,22 @@
-import { getRequestBody, RequestBody } from "./request.js";
-import { populateFields, ResponseBody } from "./response.js";
+import { getRequestBody } from "./request.js";
+import { populateFields } from "./response.js";
 
 const submitButton = document.getElementById("update-salary") as HTMLButtonElement | null;
 
 submitButton?.addEventListener("click", (e) => {
-  let request_body = getRequestBody();
-  update_fields(request_body);
+  update_fields();
 });
 
-function update_fields(request_body: RequestBody) {
-  fetch("http://localhost:5000/salary", {
+async function update_fields() {
+  const request_body = getRequestBody();
+
+  const response_body = await fetch("http://localhost:5000/salary", {
     method: "POST",
-
     body: JSON.stringify(request_body),
+    headers: { "Content-type": "application/json; charset=UTF-8" },
+  });
 
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-    },
-  })
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (response_body: ResponseBody) {
-      populateFields(response_body);
-    });
+  const data = await response_body.json();
+
+  populateFields(data);
 }
