@@ -1,20 +1,15 @@
 from pydantic import BaseModel, validator
+from salary_calc_fastapi.helpers.marginal_helpers import calculate_marginal_tax
 
 
 class NationalInsurance(BaseModel):
     gross_salary: float
 
     def _get_basic_contribution(self):
-        if self.gross_salary < 12570:
-            return 0
-        _valid_salary = min(self.gross_salary - 12570, 50270 - 12570)
-        return _valid_salary * 0.12
+        return calculate_marginal_tax(self.gross_salary, 12, 12570, 50270)
 
     def _get_higher_contribution(self):
-        if self.gross_salary < 50270:
-            return 0
-        _valid_salary = min(self.gross_salary - 50270, 125140 - 50270)
-        return _valid_salary * 0.02
+        return calculate_marginal_tax(self.gross_salary, 2, 50270)
 
     def get_amount(self):
         return self._get_basic_contribution() + \
