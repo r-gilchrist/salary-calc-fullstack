@@ -1,4 +1,5 @@
-import { RequestBody, ResponseBody } from "./types";
+import { RequestBody, ResponseBody } from "./types.js";
+import { getDropDownOption, getInputAmount, updateOutputField } from "./helpers.js";
 
 const grossInput = document.getElementById("gross-input") as HTMLInputElement | null;
 const pensionInput = document.getElementById("pension-input") as HTMLInputElement | null;
@@ -13,24 +14,13 @@ const pensionOutput = document.getElementById("pension-output") as HTMLParagraph
 const netOutput = document.getElementById("net-output") as HTMLParagraphElement | null;
 
 submitButton?.addEventListener("click", (e) => {
-  let loan_type = "";
-  if (studentInput != null) {
-    loan_type = studentInput.value;
-  }
   let request_body = {
     reference_salary: getInputAmount(grossInput),
     pension_contribution: getInputAmount(pensionInput),
-    student_loan_type: loan_type,
+    student_loan_type: getDropDownOption(studentInput),
   };
   update_fields(request_body);
 });
-
-function getInputAmount(element: HTMLInputElement | null) {
-  if (element == null) return 0;
-  let amount = Number(element.value);
-  if (isNaN(amount)) return 0;
-  return amount;
-}
 
 function update_fields(request_body: RequestBody) {
   fetch("http://localhost:5000/salary", {
@@ -53,9 +43,4 @@ function update_fields(request_body: RequestBody) {
       updateOutputField(studentOutput, response_body.student_loan);
       updateOutputField(netOutput, response_body.net_salary);
     });
-}
-
-function updateOutputField(element: HTMLParagraphElement | null, amount: number) {
-  if (element == null) return;
-  element.textContent = `£${(amount / 12).toFixed(2)}`;
 }
