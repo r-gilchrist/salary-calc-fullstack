@@ -1,21 +1,7 @@
 from fastapi_restful import Resource
 from salary_calc_fastapi.models.salary import Salary
-from pydantic import BaseModel
-
-
-class SalaryRequest(BaseModel):
-    reference_salary: float
-    pension_contribution: float
-    student_loan_type: str
-
-
-class SalaryResponse(BaseModel):
-    reference_salary: float
-    income_tax: float
-    national_insurance: float
-    student_loan: float
-    pension: float
-    net_salary: float
+from salary_calc_fastapi.models.salary_request import SalaryRequest
+from salary_calc_fastapi.models.salary_response import SalaryResponse
 
 
 class SalaryCalculation(Resource):
