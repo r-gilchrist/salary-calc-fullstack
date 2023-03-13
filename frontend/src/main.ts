@@ -5,12 +5,14 @@ const submitButton = document.getElementById("update-salary") as HTMLButtonEleme
 const grossOutput = document.getElementById("gross-output") as HTMLParagraphElement | null;
 const incomeTaxOutput = document.getElementById("tax-output") as HTMLParagraphElement | null;
 const niOutput = document.getElementById("NI-output") as HTMLParagraphElement | null;
+const studentOutput = document.getElementById("student-output") as HTMLParagraphElement | null;
 const pensionOutput = document.getElementById("pension-output") as HTMLParagraphElement | null;
 const netOutput = document.getElementById("net-output") as HTMLParagraphElement | null;
 
 type RequestBody = {
   reference_salary: number;
   pension_contribution: number;
+  student_loan_type: string;
 };
 
 type ResponseBody = {
@@ -18,6 +20,7 @@ type ResponseBody = {
   income_tax: number;
   national_insurance: number;
   pension: number;
+  student_loan: number;
   net_salary: number;
 };
 
@@ -25,6 +28,7 @@ submitButton?.addEventListener("click", (e) => {
   let request_body = {
     reference_salary: getInputAmount(grossInput),
     pension_contribution: getInputAmount(pensionInput),
+    student_loan_type: "plan_1"
   };
   update_fields(request_body);
 });
@@ -54,6 +58,7 @@ function update_fields(request_body: RequestBody) {
       updateOutputField(incomeTaxOutput, response_body.income_tax);
       updateOutputField(niOutput, response_body.national_insurance);
       updateOutputField(pensionOutput, response_body.pension);
+      updateOutputField(studentOutput, response_body.student_loan);
       updateOutputField(netOutput, response_body.net_salary);
     });
 }
