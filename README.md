@@ -17,4 +17,4 @@ It is based on combining a few other projects on my profile. I got reasonably fa
 - In a terminal, navigate to `root/frontend` and run `tpm start`. This will build the required `JavaScript` files.
 - In another terminal (you are free to close the one from above), navigate to the root directory of this project.
 - `docker-compose up -d` will build the stack
-- Navigate to `localhost/home.html` in your browser of choice
+- Navigate to http://localhost/home.html in your browser of choice
