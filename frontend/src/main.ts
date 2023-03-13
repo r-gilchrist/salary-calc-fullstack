@@ -1,5 +1,6 @@
 const grossInput = document.getElementById("gross-input") as HTMLInputElement | null;
 const pensionInput = document.getElementById("pension-input") as HTMLInputElement | null;
+const studentInput = document.getElementById("student-input") as HTMLSelectElement | null;
 const submitButton = document.getElementById("update-salary") as HTMLButtonElement | null;
 
 const grossOutput = document.getElementById("gross-output") as HTMLParagraphElement | null;
@@ -25,10 +26,14 @@ type ResponseBody = {
 };
 
 submitButton?.addEventListener("click", (e) => {
+  let loan_type = "";
+  if (studentInput != null) {
+    loan_type = studentInput.value;
+  }
   let request_body = {
     reference_salary: getInputAmount(grossInput),
     pension_contribution: getInputAmount(pensionInput),
-    student_loan_type: "plan_1"
+    student_loan_type: loan_type,
   };
   update_fields(request_body);
 });
