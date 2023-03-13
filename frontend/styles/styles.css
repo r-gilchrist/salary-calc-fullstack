@@ -29,6 +29,14 @@ hr {
   align-items: center;
 }
 
+.input-field-thirds {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 5px;
+  max-width: 350px;
+  align-items: center;
+}
+
 .output-value {
   display: inline-block;
   margin: 0;
