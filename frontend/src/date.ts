@@ -38,8 +38,8 @@ function getYearFromInput(): number {
 }
 
 function getMonthFromInput(): number {
-  if (dateMonthInput == null) return date.getMonth() + 1;
+  if (dateMonthInput == null) return date.getMonth();
   let month = Number(dateMonthInput.value);
-  if (isNaN(month)) return date.getMonth() + 1;
-  return month + 1;
+  if (isNaN(month)) return date.getMonth();
+  return month;
 }

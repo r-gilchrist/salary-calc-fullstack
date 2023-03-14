@@ -10,7 +10,6 @@ setup(
         "Topic :: Personal Finance"
     ],
     description="FastAPI server for UK salary calculations",
-    include_package_data=True,
     install_requires=[
         "fastapi==0.89.1",
         "uvicorn==0.20.0",
@@ -21,7 +20,8 @@ setup(
         "salary_calc_fastapi",
         "salary_calc_fastapi.endpoints",
         "salary_calc_fastapi.models",
-        "salary_calc_fastapi.helpers"
+        "salary_calc_fastapi.helpers",
+        "salary_calc_fastapi.data"
     ],
     python_requires=">=3.11"
 )

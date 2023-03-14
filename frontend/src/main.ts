@@ -12,6 +12,7 @@ submitButton?.addEventListener("click", (e) => {
 
 async function update_fields() {
   const request_body = getRequestBody();
+  console.log(JSON.stringify(request_body));
 
   const response_body = await fetch("http://localhost:5000/salary", {
     method: "POST",

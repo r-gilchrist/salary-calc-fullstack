@@ -2,17 +2,20 @@ from fastapi_restful import Resource
 from salary_calc_fastapi.models.salary import Salary
 from salary_calc_fastapi.models.salary_request import SalaryRequest
 from salary_calc_fastapi.models.salary_response import SalaryResponse
+from salary_calc_fastapi.models.date import Date
 
 
 class SalaryCalculation(Resource):
     def get(self):
         return {"hello": "world"}
 
-    def post(self, example: SalaryRequest) -> SalaryResponse:
+    def post(self, salary_request: SalaryRequest) -> SalaryResponse:
         salary = Salary(
-            reference_salary=example.reference_salary,
-            percentage_employee=example.pension_contribution,
-            loan_type=example.student_loan_type,
+            reference_salary=salary_request.reference_salary,
+            percentage_employee=salary_request.pension_contribution,
+            loan_type=salary_request.student_loan_type,
+            date=salary_request.date
+
         )
         return SalaryResponse(
             reference_salary=salary.reference_salary,

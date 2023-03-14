@@ -1,15 +1,23 @@
 from pydantic import BaseModel, validator
 from salary_calc_fastapi.helpers.marginal_helpers import calculate_marginal_tax
+from salary_calc_fastapi.data import get_rate, get_threshold
+from salary_calc_fastapi.models.date import Date
 
 
 class IncomeTax(BaseModel):
     gross_salary: float
+    date: Date
 
     def _get_basic_contribution(self):
-        return calculate_marginal_tax(self.gross_salary, 20, 12570, 50270)
+        rate = get_rate("income_tax", "basic", self.date)
+        threshold_lower = get_threshold("income_tax", "basic", self.date)
+        threshold_upper = get_threshold("income_tax", "higher", self.date)
+        return calculate_marginal_tax(self.gross_salary, rate, threshold_lower, threshold_upper)
 
     def _get_higher_contribution(self):
-        return calculate_marginal_tax(self.gross_salary, 40, 50270)
+        rate = get_rate("income_tax", "higher", self.date)
+        threshold_lower = get_threshold("income_tax", "higher", self.date)
+        return calculate_marginal_tax(self.gross_salary, rate, threshold_lower)
 
     def get_amount(self):
         return self._get_basic_contribution() + \

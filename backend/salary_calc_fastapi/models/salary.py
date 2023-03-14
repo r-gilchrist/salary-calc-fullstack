@@ -3,10 +3,12 @@ from salary_calc_fastapi.models.income_tax import IncomeTax
 from salary_calc_fastapi.models.national_insurance import NationalInsurance
 from salary_calc_fastapi.models.student_loan import StudentLoan
 from salary_calc_fastapi.models.pension import Pension
+from salary_calc_fastapi.models.date import Date
 
 
 class Salary(BaseModel):
     reference_salary: float
+    date: Date
     percentage_employer: float | None = 0
     percentage_employee: float | None = 0
     loan_type: str = ""
@@ -25,11 +27,17 @@ class Salary(BaseModel):
 
     @property
     def income_tax(self):
-        return IncomeTax(gross_salary=self.gross_salary).get_amount()
+        return IncomeTax(
+            gross_salary=self.gross_salary,
+            date=self.date
+        ).get_amount()
 
     @property
     def national_insurance(self):
-        return NationalInsurance(gross_salary=self.gross_salary).get_amount()
+        return NationalInsurance(
+            gross_salary=self.gross_salary,
+            date=self.date
+        ).get_amount()
 
     @property
     def student_loan(self):
