@@ -20,5 +20,3 @@ class Date(BaseModel):
 
     def to_datetime(self) -> datetime.datetime:
         return datetime.datetime(self.year, self.month, 1)
-
-print(Date(year=2023, month=6))

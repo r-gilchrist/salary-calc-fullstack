@@ -2,7 +2,6 @@ from fastapi_restful import Resource
 from salary_calc_fastapi.models.salary import Salary
 from salary_calc_fastapi.models.salary_request import SalaryRequest
 from salary_calc_fastapi.models.salary_response import SalaryResponse
-from salary_calc_fastapi.models.date import Date
 
 
 class SalaryCalculation(Resource):

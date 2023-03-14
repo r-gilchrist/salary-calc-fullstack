@@ -11,7 +11,7 @@ class Salary(BaseModel):
     date: Date
     percentage_employer: float | None = 0
     percentage_employee: float | None = 0
-    loan_type: str = ""
+    loan_type: str = "no_loan"
 
     @property
     def pension(self):

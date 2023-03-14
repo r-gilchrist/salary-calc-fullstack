@@ -21,7 +21,8 @@ setup(
         "salary_calc_fastapi.endpoints",
         "salary_calc_fastapi.models",
         "salary_calc_fastapi.helpers",
-        "salary_calc_fastapi.data"
+        "salary_calc_fastapi.data",
+        "salary_calc_fastapi.tests.utils"
     ],
     python_requires=">=3.11"
 )
