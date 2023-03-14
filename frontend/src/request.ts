@@ -1,11 +1,15 @@
+import { getDateFromInput, UserDate } from "./date.js";
+
 const grossInput = document.getElementById("gross-input") as HTMLInputElement | null;
 const pensionInput = document.getElementById("pension-input") as HTMLInputElement | null;
 const studentInput = document.getElementById("student-input") as HTMLSelectElement | null;
+
 
 type RequestBody = {
   reference_salary: number;
   pension_contribution: number;
   student_loan_type: string;
+  date: UserDate;
 };
 
 export function getRequestBody(): RequestBody {
@@ -13,6 +17,7 @@ export function getRequestBody(): RequestBody {
     reference_salary: getInputAmount(grossInput),
     pension_contribution: getInputAmount(pensionInput),
     student_loan_type: getDropDownOption(studentInput),
+    date: getDateFromInput()
   };
 }
 

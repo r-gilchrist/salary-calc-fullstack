@@ -1,8 +1,8 @@
 import { getRequestBody } from "./request.js";
 import { populateFields } from "./response.js";
-import { set_date } from "./date.js";
+import { setDefaultDate } from "./date.js";
 
-set_date()
+setDefaultDate()
 
 const submitButton = document.getElementById("update-salary") as HTMLButtonElement | null;
 
