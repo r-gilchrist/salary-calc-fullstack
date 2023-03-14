@@ -43,7 +43,8 @@ class Salary(BaseModel):
     def student_loan(self):
         return StudentLoan(
             gross_salary=self.gross_salary,
-            loan_type=self.loan_type
+            loan_type=self.loan_type,
+            date=self.date
         ).get_amount()
 
     @property
