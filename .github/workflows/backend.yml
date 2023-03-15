@@ -12,7 +12,7 @@ jobs:
     timeout-minutes: 10
     strategy:
       matrix:
-        python-version: ['3.9', '3.10', '3.11']
+        python-version: ['3.10', '3.11']
     steps:
 
       - name: checkout
@@ -22,16 +22,19 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
+        
 
       - name: install build dependencies
-        run: "pip3 install -r ./backend/requirements.txt"
+        run: |
+          cd ./backend
+          pip3 install -r requirements.txt
 
       - name: run code quality checks
-        run: 'python3 -m flake8 ./backend/salary_calc_fastapi/'
+        run: 'python3 -m flake8 salary_calc_fastapi/'
 
       - name: run tests
         run: |
-          python3 -m pytest ./backend/
+          python3 -m pytest
 
       - name: build wheel
         run: 'python3 ./backend/setup.py bdist_wheel'
