@@ -17,6 +17,10 @@ class TestIncomeTaxModel(TestCaseWithDate):
         income_tax = IncomeTax(gross_salary=75000, date=self.date)
         self.assertAlmostEqual(17432, income_tax.get_amount())
 
+    def test_additional_rate_taxpayer(self):
+        income_tax = IncomeTax(gross_salary=200000, date=self.date)
+        self.assertAlmostEqual(74960, income_tax.get_amount())
+
     def test_gross_salary_must_be_positive(self):
         with self.assertRaises(ValidationError):
             IncomeTax(gross_salary=-1000, date=self.date)

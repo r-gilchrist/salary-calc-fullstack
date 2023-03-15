@@ -15,3 +15,7 @@ class TestSalaryModel(TestCaseWithDate):
     def test_higher_rate(self):
         salary = Salary(reference_salary=75000, date=self.date)
         self.assertEqual(52549.40, salary.net_salary)
+
+    def test_additional_rate(self):
+        salary = Salary(reference_salary=200000, date=self.date)
+        self.assertEqual(117521.40, salary.net_salary)
