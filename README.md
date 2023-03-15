@@ -1,6 +1,6 @@
 # Salary Calculator
 
-![image](https://user-images.githubusercontent.com/56300878/225023796-c27d23ce-da25-489e-aa28-71ec6391ce29.png)
+![image](https://user-images.githubusercontent.com/56300878/225398316-140edb2e-0a03-4d26-9907-ee669b9353c8.png)
 
 This repository houses a salary calculator using the following technologies:
 
@@ -17,4 +17,4 @@ It is based on combining a few other projects on my profile. I got reasonably fa
 - In a terminal, navigate to `root/frontend` and run `tpm start`. This will build the required `JavaScript` files.
 - In another terminal (you are free to close the one from above), navigate to the root directory of this project.
 - `docker-compose up -d` will build the stack
-- Navigate to http://localhost/home.html in your browser of choice
+- Navigate to http://localhost/html/home.html in your browser of choice
