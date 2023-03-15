@@ -1,6 +1,6 @@
 # Salary Calculator
 
-![image](https://user-images.githubusercontent.com/56300878/225398316-140edb2e-0a03-4d26-9907-ee669b9353c8.png)
+![image](https://user-images.githubusercontent.com/56300878/225398463-8f8417d1-5f06-47fe-9606-3f4ef76a0b64.png)
 
 This repository houses a salary calculator using the following technologies:
 
