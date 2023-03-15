@@ -14,7 +14,8 @@ setup(
         "fastapi==0.89.1",
         "uvicorn==0.20.0",
         "pydantic==1.10.4",
-        "fastapi-restful==0.4.3"
+        "fastapi-restful==0.4.3",
+        "httpx==0.23.3"
     ],
     packages=[
         "salary_calc_fastapi",
@@ -24,5 +25,5 @@ setup(
         "salary_calc_fastapi.data",
         "salary_calc_fastapi.tests.utils"
     ],
-    python_requires=">=3.11"
+    python_requires=">=3.10"
 )
