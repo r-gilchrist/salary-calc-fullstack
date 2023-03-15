@@ -22,7 +22,6 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-        
 
       - name: install build dependencies
         run: |
@@ -30,11 +29,16 @@ jobs:
           pip3 install -r requirements.txt
 
       - name: run code quality checks
-        run: 'python3 -m flake8 salary_calc_fastapi/'
+        run: |
+          cd ./backend
+          python3 -m flake8 salary_calc_fastapi/
 
       - name: run tests
         run: |
+          cd ./backend
           python3 -m pytest
 
       - name: build wheel
-        run: 'python3 ./backend/setup.py bdist_wheel'
+        run: |
+          cd ./backend
+          python3 setup.py bdist_wheel
