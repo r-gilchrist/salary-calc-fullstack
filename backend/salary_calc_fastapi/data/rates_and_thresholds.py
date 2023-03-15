@@ -47,7 +47,8 @@ DATA = {
                 {"date_start": "2021-04", "date_end": "2027-04", "value": 50270},
             ],
             "additional": [
-                {"date_start": "2020-04", "date_end": "2027-04", "value": 150000}
+                {"date_start": "2020-04", "date_end": "2023-04", "value": 150000},
+                {"date_start": "2023-04", "date_end": "2027-04", "value": 125140},
             ],
         },
         "student_loan": {
