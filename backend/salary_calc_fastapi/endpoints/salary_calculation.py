@@ -5,8 +5,6 @@ from salary_calc_fastapi.models.salary_response import SalaryResponse
 
 
 class SalaryCalculation(Resource):
-    def get(self):
-        return {"hello": "world"}
 
     def post(self, salary_request: SalaryRequest) -> SalaryResponse:
         salary = Salary(
