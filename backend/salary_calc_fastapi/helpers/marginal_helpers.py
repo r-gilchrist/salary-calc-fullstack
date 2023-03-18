@@ -3,7 +3,7 @@ def calculate_marginal_tax(
     rate: float,
     lower_margin: float,
     upper_margin: float | None = None,
-):
+) -> float:
     """Calculates marginal tax amount
 
     :param gross_salary: Gross salary

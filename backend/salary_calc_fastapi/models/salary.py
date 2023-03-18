@@ -14,7 +14,7 @@ class Salary(BaseModel):
     loan_type: str = "no_loan"
 
     @property
-    def pension(self):
+    def pension(self) -> float:
         return Pension(
             reference_salary=self.reference_salary,
             percentage_employee=self.percentage_employee,
@@ -22,25 +22,25 @@ class Salary(BaseModel):
         ).get_amount()
 
     @property
-    def gross_salary(self):
+    def gross_salary(self) -> float:
         return self.reference_salary - self.pension
 
     @property
-    def income_tax(self):
+    def income_tax(self) -> float:
         return IncomeTax(
             gross_salary=self.gross_salary,
             date=self.date
         ).get_amount()
 
     @property
-    def national_insurance(self):
+    def national_insurance(self) -> float:
         return NationalInsurance(
             gross_salary=self.gross_salary,
             date=self.date
         ).get_amount()
 
     @property
-    def student_loan(self):
+    def student_loan(self) -> float:
         return StudentLoan(
             gross_salary=self.gross_salary,
             loan_type=self.loan_type,
@@ -48,5 +48,5 @@ class Salary(BaseModel):
         ).get_amount()
 
     @property
-    def net_salary(self):
+    def net_salary(self) -> float:
         return self.gross_salary - self.income_tax - self.national_insurance - self.student_loan

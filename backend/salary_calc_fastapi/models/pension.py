@@ -6,10 +6,10 @@ class Pension(BaseModel):
     percentage_employee: float | None = 0
     percentage_employer: float | None = 0
 
-    def total_percentage(self):
+    def total_percentage(self) -> float:
         return self.percentage_employee + self.percentage_employer
 
-    def get_amount(self):
+    def get_amount(self) -> float:
         return self.reference_salary * 0.01 * self.total_percentage()
 
     @validator("percentage_employee", "percentage_employer")
