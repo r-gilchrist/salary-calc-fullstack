@@ -9,14 +9,14 @@ DATA = {
             "higher": [
                 {"date_start": "2020-04", "date_end": "2022-04", "value": 2},
                 {"date_start": "2022-04", "date_end": "2022-11", "value": 3.25},
-                {"date_start": "2022-11", "date_end": "2023-04", "value": 2},
+                {"date_start": "2022-11", "date_end": "2027-04", "value": 2},
             ],
         },
         "income_tax": {
-            "basic": [{"date_start": "2020-04", "date_end": "2023-04", "value": 20}],
-            "higher": [{"date_start": "2020-04", "date_end": "2023-04", "value": 40}],
+            "basic": [{"date_start": "2020-04", "date_end": "2027-04", "value": 20}],
+            "higher": [{"date_start": "2020-04", "date_end": "2027-04", "value": 40}],
             "additional": [
-                {"date_start": "2020-04", "date_end": "2023-04", "value": 45}
+                {"date_start": "2020-04", "date_end": "2027-04", "value": 45}
             ],
         },
         "student_loan": {
