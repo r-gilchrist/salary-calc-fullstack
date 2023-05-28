@@ -4,8 +4,6 @@ from pathlib import Path
 from salary_calc_fastapi.data.rates_and_thresholds import DATA
 from salary_calc_fastapi.models.date import Date
 
-JSON_FILE = f"{Path(__file__).parent}/rates_and_thresholds.json"
-
 
 def datetime_from_string(date: str) -> datetime.date:
     return datetime.strptime(date, "%Y-%m")
