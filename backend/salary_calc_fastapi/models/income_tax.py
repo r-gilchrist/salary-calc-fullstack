@@ -30,9 +30,6 @@ class IncomeTax(BaseModel):
         return calculate_marginal_tax(self.gross_salary, rate, threshold)
 
     def get_amount(self) -> float:
-        print(
-            f"{self._get_additional_contribution(), self._get_basic_contribution(), self._get_higher_contribution()}"
-        )
         return (
             self._get_basic_contribution()
             + self._get_higher_contribution()
