@@ -12,13 +12,17 @@ class IncomeTax(BaseModel):
         rate = get_rate("income_tax", "basic", self.date)
         threshold_lower = self._get_threshold("basic")
         threshold_upper = self._get_threshold("higher")
-        return calculate_marginal_tax(self.gross_salary, rate, threshold_lower, threshold_upper)
+        return calculate_marginal_tax(
+            self.gross_salary, rate, threshold_lower, threshold_upper
+        )
 
     def _get_higher_contribution(self) -> float:
         rate = get_rate("income_tax", "higher", self.date)
         threshold_lower = self._get_threshold("higher")
         threshold_upper = get_threshold("income_tax", "additional", self.date)
-        return calculate_marginal_tax(self.gross_salary, rate, threshold_lower, threshold_upper)
+        return calculate_marginal_tax(
+            self.gross_salary, rate, threshold_lower, threshold_upper
+        )
 
     def _get_additional_contribution(self) -> float:
         rate = get_rate("income_tax", "additional", self.date)
@@ -26,10 +30,14 @@ class IncomeTax(BaseModel):
         return calculate_marginal_tax(self.gross_salary, rate, threshold)
 
     def get_amount(self) -> float:
-        print(f"{self._get_additional_contribution(), self._get_basic_contribution(), self._get_higher_contribution()}")
-        return self._get_basic_contribution() + \
-            self._get_higher_contribution() + \
-            self._get_additional_contribution()
+        print(
+            f"{self._get_additional_contribution(), self._get_basic_contribution(), self._get_higher_contribution()}"
+        )
+        return (
+            self._get_basic_contribution()
+            + self._get_higher_contribution()
+            + self._get_additional_contribution()
+        )
 
     def _get_threshold(self, category: str) -> float:
         """

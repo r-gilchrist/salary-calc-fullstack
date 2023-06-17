@@ -3,7 +3,6 @@ from salary_calc_fastapi.tests.utils.test_classes import TestCaseWithDate
 
 
 class TestSalaryModel(TestCaseWithDate):
-
     def test_no_deductions(self):
         salary = Salary(reference_salary=5000, date=self.date)
         self.assertEqual(5000, salary.net_salary)

@@ -12,7 +12,9 @@ class NationalInsurance(BaseModel):
         rate = get_rate("national_insurance", "basic", self.date)
         threshold_lower = get_threshold("national_insurance", "basic", self.date)
         threshold_upper = get_threshold("national_insurance", "higher", self.date)
-        return calculate_marginal_tax(self.gross_salary, rate, threshold_lower, threshold_upper)
+        return calculate_marginal_tax(
+            self.gross_salary, rate, threshold_lower, threshold_upper
+        )
 
     def _get_higher_contribution(self) -> float:
         rate = get_rate("national_insurance", "higher", self.date)
@@ -20,8 +22,7 @@ class NationalInsurance(BaseModel):
         return calculate_marginal_tax(self.gross_salary, rate, threshold_lower)
 
     def get_amount(self) -> float:
-        return self._get_basic_contribution() + \
-               self._get_higher_contribution()
+        return self._get_basic_contribution() + self._get_higher_contribution()
 
     @validator("gross_salary")
     def check_values_are_positive_numbers(cls, value):

@@ -4,7 +4,6 @@ from salary_calc_fastapi.tests.utils.test_classes import TestCaseWithDate
 
 
 class TestIncomeTaxModel(TestCaseWithDate):
-
     def test_no_tax(self):
         income_tax = IncomeTax(gross_salary=5000, date=self.date)
         self.assertAlmostEqual(0, income_tax.get_amount())

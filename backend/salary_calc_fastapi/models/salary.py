@@ -27,26 +27,25 @@ class Salary(BaseModel):
 
     @property
     def income_tax(self) -> float:
-        return IncomeTax(
-            gross_salary=self.gross_salary,
-            date=self.date
-        ).get_amount()
+        return IncomeTax(gross_salary=self.gross_salary, date=self.date).get_amount()
 
     @property
     def national_insurance(self) -> float:
         return NationalInsurance(
-            gross_salary=self.gross_salary,
-            date=self.date
+            gross_salary=self.gross_salary, date=self.date
         ).get_amount()
 
     @property
     def student_loan(self) -> float:
         return StudentLoan(
-            gross_salary=self.gross_salary,
-            loan_type=self.loan_type,
-            date=self.date
+            gross_salary=self.gross_salary, loan_type=self.loan_type, date=self.date
         ).get_amount()
 
     @property
     def net_salary(self) -> float:
-        return self.gross_salary - self.income_tax - self.national_insurance - self.student_loan
+        return (
+            self.gross_salary
+            - self.income_tax
+            - self.national_insurance
+            - self.student_loan
+        )

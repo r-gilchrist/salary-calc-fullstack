@@ -5,14 +5,12 @@ from salary_calc_fastapi.models.salary_response import SalaryResponse
 
 
 class SalaryCalculation(Resource):
-
     def post(self, salary_request: SalaryRequest) -> SalaryResponse:
         salary = Salary(
             reference_salary=salary_request.reference_salary,
             percentage_employee=salary_request.pension_contribution,
             loan_type=salary_request.student_loan_type,
-            date=salary_request.date
-
+            date=salary_request.date,
         )
         return SalaryResponse(
             reference_salary=salary.reference_salary,

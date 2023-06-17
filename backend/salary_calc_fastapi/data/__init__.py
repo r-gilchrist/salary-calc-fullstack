@@ -9,7 +9,6 @@ def datetime_from_string(date: str) -> datetime.date:
 
 
 def _get_value(value_type: str, tax_type: str, category: str, date: Date) -> float:
-
     values = DATA[value_type][tax_type][category]
 
     for value in values:
