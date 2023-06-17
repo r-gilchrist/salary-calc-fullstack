@@ -8,13 +8,13 @@ class TestStudentLoanModel(TestCaseWithDate):
         student_loan = StudentLoan(
             gross_salary=30000, loan_type="plan_1", date=self.date
         )
-        self.assertAlmostEqual(876, student_loan.get_amount())
+        self.assertAlmostEqual(876, student_loan())
 
     def test_plan_2(self):
         student_loan = StudentLoan(
             gross_salary=30000, loan_type="plan_2", date=self.date
         )
-        self.assertAlmostEqual(240, student_loan.get_amount())
+        self.assertAlmostEqual(240, student_loan())
 
     def test_gross_salary_must_be_positive(self):
         with self.assertRaises(ValidationError):

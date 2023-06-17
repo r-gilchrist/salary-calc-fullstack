@@ -9,7 +9,7 @@ class StudentLoan(BaseModel):
     date: Date
     loan_type: str = "plan_1"
 
-    def get_amount(self) -> float:
+    def __call__(self) -> float:
         if self.loan_type == "no_loan":
             return 0
         rate = get_rate("student_loan", self.loan_type, self.date)

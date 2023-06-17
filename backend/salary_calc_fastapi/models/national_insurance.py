@@ -21,7 +21,7 @@ class NationalInsurance(BaseModel):
         threshold_lower = get_threshold("national_insurance", "higher", self.date)
         return calculate_marginal_tax(self.gross_salary, rate, threshold_lower)
 
-    def get_amount(self) -> float:
+    def __call__(self) -> float:
         return self._get_basic_contribution() + self._get_higher_contribution()
 
     @validator("gross_salary")

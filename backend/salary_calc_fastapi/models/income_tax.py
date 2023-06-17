@@ -29,7 +29,7 @@ class IncomeTax(BaseModel):
         threshold = get_threshold("income_tax", "additional", self.date)
         return calculate_marginal_tax(self.gross_salary, rate, threshold)
 
-    def get_amount(self) -> float:
+    def __call__(self) -> float:
         return (
             self._get_basic_contribution()
             + self._get_higher_contribution()
