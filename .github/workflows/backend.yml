@@ -23,22 +23,22 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: install build dependencies
+      - name: set up Poetry
+        uses: snok/install-poetry@v1
+        with:
+          version: "1.5.1"
+
+      - name: install dependencies
         run: |
           cd ./backend
-          pip3 install -r requirements.txt
+          poetry install
 
       - name: run code quality checks
         run: |
           cd ./backend
-          python3 -m flake8 salary_calc_fastapi/
+          poetry run flake8
 
       - name: run tests
         run: |
           cd ./backend
-          python3 -m pytest
-
-      - name: build wheel
-        run: |
-          cd ./backend
-          python3 setup.py bdist_wheel
+          poetry run pytest
