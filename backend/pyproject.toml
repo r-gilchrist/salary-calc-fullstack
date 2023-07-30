@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "salary-calc-fullstack"
+version = "0.1.0"
+description = "A full stack dockerised salary calculator"
+authors = ["Ryan Gilchrist"]
+readme = "README.md"
+packages = [{include = "salary_calc_fastapi"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.89.1"
+uvicorn = "^0.20.0"
+pydantic = "^1.10.4"
+fastapi_restful = "^0.4.3"
+httpx = "^0.23.3"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.0"
+flake8 = "^5.0.4"
+coverage = "^6.5.0"
+wheel = "^0.38.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
