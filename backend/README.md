@@ -1,1 +1,0 @@
-Backend component of the calculator.

@@ -3,7 +3,6 @@ name = "salary-calc-fullstack"
 version = "0.1.0"
 description = "A full stack dockerised salary calculator"
 authors = ["Ryan Gilchrist"]
-readme = "README.md"
 packages = [{include = "salary_calc_fastapi"}]
 
 [tool.poetry.dependencies]
