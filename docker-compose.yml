@@ -15,14 +15,11 @@ services:
   backend:
     image: python:3.11
     volumes:
-      - ./backend/requirements.txt:/code/requirements.txt
-      - ./backend/setup.py:/code/setup.py
-      - ./backend/salary_calc_fastapi:/code/salary_calc_fastapi
+      - ./backend/:/code/
     ports:
       - 5000:5000
     command: >
-      bash -c 
-      "pip install -r code/requirements.txt
-      && pip install code/.
+      bash -c
+      "pip install code/.
       && cd code/salary_calc_fastapi
       && uvicorn app:app --host 0.0.0.0 --port 5000 --reload"
